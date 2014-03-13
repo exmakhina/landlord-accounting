@@ -1,0 +1,72 @@
+"1";"actif";"Actif";"Asset"
+"2";"actif_court_terme";"Actif à court terme";"Short-term asset"
+"3";"total_actif_court_terme";"TOTAL ACTIF A COURT TERME";"TOTAL SHORT-TERM ASSET"
+"4";"total_immobilisations";"TOTAL IMMOBILISATIONS";"TOTAL FIXED ASSET"
+"5";"total_actif";"TOTAL ACTIFS";"TOTAL ASSET"
+"6";"passif";"Passif";"Debt"
+"7";"total_passif";"TOTAL DU PASSIF";"TOTAL DEBT"
+"8";"capital";"Capital";"Capital"
+"9";"benefices";"Bénéfices (Pertes)";"Profit (Loss)"
+"10";"total_capital";"TOTAL DU CAPITAL";"TOTAL CAPITAL"
+"11";"total_passif_capital";"TOTAL PASSIF + CAPITAL";"TOTAL DEBT + CAPITAL"
+"12";"immobilisations";"Immobilisations";"Fixed asset"
+"13";"petite_caisse";"Petite caisse";
+"14";"paypal";"Paypal";
+"15";"cpt_bank";"Compte bancaire";
+"16";"cpt_client";"Compte a recevoir clients";
+"17";"cpt_recevoir_taxe_fed";"Compte a recevoir taxe fédérale";
+"18";"cpt_recevoir_taxe_prov";"Compte a recevoir taxe provinciale";
+"19";"cpt_recevoir_taxe";"Compte a recevoir taxe";
+"20";"eq_maison";"Equipement maison";
+"21";"amort_cumul_eq_maison";"Amortissement cumule : Equipement maison";
+"22";"eq_info";"Equipement informatique";
+"23";"amort_cumul_eq_info";"Amortissement cumule : équipement informatique";
+"24";"eq_misc";"Autres équipements";
+"25";"amort_cumul_eq_misc";"Amortissement cumule : autres équipements";
+"26";"prov_travaux";"Provisions pour travaux";
+"27";"emprunt_bank";"Emprunt de banque";
+"28";"emprunt_prop_1";"Emprunt Propriétaire 1";
+"29";"emprunt_prop_2";"Emprunt Propriétaire 2";
+"30";"emprunt_prop_3";"Emprunt Propriétaire 3";
+"31";"invest_prop_1";"Investissement Propriétaire 1";
+"32";"invest_prop_2";"Investissement Propriétaire 2";
+"33";"invest_prop_3";"Investissement Propriétaire 3";
+"34";"avance_prop_1";"Avance Propriétaire 1";
+"35";"avance_prop_2";"Avance Propriétaire 2";
+"36";"avance_prop_3";"Avance Propriétaire 3";
+"37";"benef";"Bénéfices";
+"38";"loc";"Locations";
+"39";"revenus_misc";"Autres revenus";
+"40";"interets";"Intérêts placements";
+"41";"frais_entretien";"Frais d'entretien";
+"42";"prod_entretien";"Achats produits entretien";
+"43";"elec";"Électricité, gaz, Internet, Téléphone, Câble";
+"44";"repairs";"Réparations";
+"45";"sal_gerant";"Salaire Gérant";
+"46";"sal_personel";"Salaire autre personnel";
+"47";"div_prop_1";"Dividendes Propriétaire 1";
+"48";"div_prop_2";"Dividendes Propriétaire 2";
+"49";"div_prop_3";"Dividendes Propriétaire 3";
+"50";"loc_bureau";"Locations bureau";
+"51";"frais_bureau";"Frais de bureau a domicile incluant Assurances et Loyer";
+"52";"elec_bureau";"Électricité";
+"53";"repairs_bureau";"Entretien et réparation";
+"54";"phone_bureau";"Frais de bureau : Téléphone & Internet";
+"55";"dep";"Frais de déplacements";
+"56";"entretien_auto";"Entretien et réparation de véhicule";
+"57";"gas";"Essence";
+"58";"fournit_bureau";"Fournitures de bureau";
+"59";"hono_prof";"Honoraires professionnels (comptable, Photographe, ...)";
+"60";"pub";"Publicité et promotion";
+"61";"abo";"Abonnements et cotisations";
+"62";"ass";"Assurances";
+"63";"frais_rep";"Frais de représentation";
+"64";"frais_bank";"Frais bancaires";
+"65";"loyers";"Loyers";
+"66";"dep_amort";"Dépense d'amortissement";
+"67";"misc";"Divers";
+"68";"ACTIF";"ACTIF";"ASSET"
+"69";"PASSIF";"PASSIF";"DEBT"
+"70";"CAPITAL";"CAPITAL";"CAPITAL"
+"71";"REVENU";"REVENU";"INCOME"
+"72";"DEPENSE";"DEPENSE";"SPENDING"

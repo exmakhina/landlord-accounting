@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	margin: 0px;
+	list-style-type: none;
+	text-align: left;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+td, th {
+	padding:2px;
+}
+#login {
+	text-align:center;
+}
+#login-element {
+	text-align: center;
+	margin: 0px;
+}
+h1 {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 36px;
+	text-align: center;
+	margin-top: 50px;
+	margin-right: 0px;
+	margin-bottom: 30px;
+	margin-left: 0px;
+}
+.credentials {
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #DFDFDF;
+	font-size: 16px;
+	text-align: left;
+	vertical-align: middle;
+	margin-top: 120px;
+	width:270px;
+	height:auto;
+}
+.credentials input {
+	width: 90%;
+}
+
+input, textarea {
+	background-color: #FFFBE5;
+	border: 2px inset #DFDFDF;
+}
+.errors {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: italic;
+	color: #F00;
+}
+.date {
+	height: 50px;
+	width: 350px;
+	float: left;
+	text-align: left;
+	clear: left;
+	display: block;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+#date-element {
+	height: 50px;
+	width: 350px;
+	text-align: left;
+	vertical-align: middle;
+	margin: 0px;
+	float: left;
+	display: block;
+}
+#fieldset-date {
+	margin: 0px;
+	display: block;
+	padding: 5px;
+	height: 40px;
+	width: 340px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+#envoyer-element {
+	clear: both;
+	float: none;
+	margin: 0px;
+	text-align: center;
+}
+#envoyer {
+	margin-right: auto;
+	margin-left: auto;
+	width: 150px;
+	background-color: #DFDFDF;
+	border: medium outset #DFDFDF;
+	clear: both;
+	float: none;
+	margin-top: 30px;
+}
+.pair {
+	background-color: #FFD9D3;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.impair {
+	background-color: #DAFFE4;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.titre_liste {
+	background-color: #E3E3E3;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.table_br {
+	width: 65%;
+	margin-top: 15px;
+	margin-left: 20%;
+}
+#user-username-label {
+	padding: 2px;
+}
+#user-password-label {
+	padding: 2px;
+}
+h3 {
+	margin-top: 30px;
+	margin-left: 10%;
+	font-variant: small-caps;
+}
+h2 {
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 16px;
+	font-variant: small-caps;
+}
+.total_categorie_br {
+	width: 65%;
+	margin-top: 25px;
+	margin-left: 20%;
+	background-color: #FFFAB8;
+}
+.montant {
+	text-align:right;
+	width: auto;
+}
+.poste {
+	text-align:left;
+	width: auto;
+}
+.cell_ldc_l {
+	display: block;
+	width: 23em;
+	text-align: center;
+}
+.cell_ldc_s {
+	display: block;
+	width: 10em;
+	text-align: center;
+}
+.delete {
+	background: url(/img/sprite.png)  0px -66px no-repeat;
+	height: 16px;
+	width: 16px;
+}
+.edit {
+	height: 20px;
+	width: 58px;
+}
+.liste {
+	font-size: 12px;
+	text-decoration: none;
+	margin-top: 30px;
+	margin-left: 10px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	width: 10px;
+}
+.liste td, th {
+	border: 1px solid #FFF;
+}
+.contact {
+	width: 600px;
+	border: 1px solid #999;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+}
+.contact td {
+	padding-left:10px;
+	padding-right:10px;
+	vertical-align:middle;
+}
+
+.sejour {
+	margin-left: 450px;
+	width: 600px;
+}
+.liste_postes {
+	width: 50%;
+	float:left;
+}
+.postesCheckList {
+	width: 50%;
+	float: left;
+}
+.paid {
+	color: #0F0;
+	font-weight: bold;
+	text-align: center;
+}
+.notpaid {
+	font-weight: bold;
+	color: #F00;
+	text-align: center;
+}
+#map_canvas {
+	width:834px;
+	height:520px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.footer {
+	height:30px;
+	clear:both;
+	float:none;
+}
+#chart_pie {
+	width:450px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.submit {
+	text-align: center;
+	vertical-align: middle;
+}
+.main_pic {
+	width:355px;
+	height:427px;
+	float:left;
+}
+.main_opt {
+	float:left;
+	width:700px;
+	text-align:center;
+}

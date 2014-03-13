@@ -1,0 +1,19 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableProj; ?>);
+		var chart = new google.visualization.AreaChart(document.getElementById('chart_proj'));
+		var options = {	width: 1100,
+								height: 500, 
+								title: 'Projections de revenus, Années N-1, N et N+1',
+				  				hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: '#FF0000'}}
+				 			};
+				 
+		chart.draw(data, options);
+	}
+</script>
+    
+<div id="chart_proj"></div>

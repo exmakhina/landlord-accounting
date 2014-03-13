@@ -1,0 +1,4 @@
+<h1>Confirmation de l'effacement de l'operation :</h1>
+<?php echo $this->showOp($this->OpId); ?>
+<a class="button save" href="<?php echo $this->url(array('controller'=>'rapport', 'action'=>'delete', 'id' => $this->OpId)); ?>">Effacer</a>
+<a class="button delete" href="<?php echo $this->url(array('controller'=>'rapport', 'action'=>'index', 'id' => NULL)); ?>">Conserver</a>

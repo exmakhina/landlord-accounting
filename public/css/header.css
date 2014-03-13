@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.header {
+	font-size: 12px;
+	font-style: normal;
+	color: #FFF;
+	background-color: #000;
+	height: 30px;
+	text-decoration: none;
+	text-align:center;
+	padding-right: 5px;
+	padding-left: 5px;
+	width:100%;
+}
+.user_welcome {
+	float: left;
+	color: #F00;
+	letter-spacing: 1pt;
+	width: 200px;
+	text-align:left;
+	height: 15px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.header li a {
+	color: #DFDFDF;
+	letter-spacing: 1pt;
+	display:block;
+}
+.header li a:hover {
+	color: #AAA;
+	letter-spacing: 1pt;
+	display:block;
+}
+.header li {
+	float: left;
+	width: 120px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	height: 15px;
+}
+.lang_en {
+	float: right;
+	height: 11px;
+	width: 16px;
+	margin-top: 10px;
+	background-image: url(../img/en_lang.gif);
+	background-repeat: no-repeat;
+	margin-right: 10px;
+}
+.lang_fr {
+	float: right;
+	height: 11px;
+	width: 16px;
+	margin-top: 10px;
+	background-image: url(../img/fr_lang.gif);
+	background-repeat: no-repeat;
+	margin-right: 10px;
+}
+.lang_fr a {
+	width: 16px;
+	height: 11px;
+}
+.current {
+	color: #0F0;
+	background-color:#414141;
+}

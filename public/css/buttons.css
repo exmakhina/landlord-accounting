@@ -1,0 +1,143 @@
+.buttons {
+	float: left;
+    padding-bottom: 20px;
+    clear: both;
+}
+input.button, a.button {
+	color: #6e6e6e;
+	font: bold 12px Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	position: relative;
+	display: block;
+	text-shadow: 0 1px 0 #fff;
+    -webkit-transition: border-color .218s;
+    -moz-transition: border .218s;
+    -o-transition: border-color .218s;
+    transition: border-color .218s;
+	background: #f3f3f3;
+	background: -webkit-gradient(linear,0% 40%,0% 70%,from(#F5F5F5),to(#F1F1F1));
+	background: -moz-linear-gradient(linear,0% 40%,0% 70%,from(#F5F5F5),to(#F1F1F1));
+	border: solid 1px #dcdcdc;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 15px;
+	padding-top: 7px;
+	padding-right: 12px;
+	padding-bottom: 7px;
+	padding-left: 12px;
+}
+input.button:hover, a.button:hover {
+    color: #333;
+    border-color: #999;
+    -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2) -webkit-box-shadow:0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+input.button:active, a.button:active {
+    color: #000;
+    border-color: #444;
+}
+input.left, a.left {
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+}
+input.middle, a.middle {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-left: solid 1px #f3f3f3;
+    margin: 0;
+    border-left: solid 1px rgba(255, 255, 255, 0);
+}
+input.middle, a.middle:hover,
+input.right:hover, a.right:hover { border-left: solid 1px #999 }
+input.right, a.right {
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-bottom-left-radius: 0;
+    border-left: solid 1px #f3f3f3;
+    border-left: solid 1px rgba(255, 255, 255, 0);
+}
+input.big, a.big {
+    font-size: 16px;
+    padding: 10px 15px;
+}
+input.supersize, a.supersize {
+    font-size: 20px;
+    padding: 15px 20px;
+}
+input.save, a.save {
+	background: url(/img/sprite.png) 10px 7px no-repeat #f3f3f3;
+	padding-left: 30px;
+	width:10em;
+	display:block;
+	text-align:center;
+}
+input.add, a.add {
+    background: url(/img/sprite.png)  10px -27px no-repeat #f3f3f3;
+    padding-left: 30px;
+	width:10em;
+	margin-left:10px;
+}
+input.delete, a.delete {
+    background: url(/img/sprite.png)  10px -61px no-repeat #f3f3f3;
+    padding-left: 30px;
+	width:10em;
+	display:block;
+	text-align:center;
+}
+input.flag, a.flag {
+    background: url(/img/sprite.png)  10px -96px no-repeat #f3f3f3;
+    padding-left: 30px;
+}
+input.up, a.up {
+    background: url(/img/sprite.png)  13px -133px no-repeat #f3f3f3;
+    width: 18px;
+}
+input.down, a.down {
+    background: url(/img/sprite.png)  13px -168px no-repeat #f3f3f3;
+    width: 18px;
+}
+input.save-big, a.save-big {
+    background: url(/img/sprite.png) 15px 11px no-repeat #f3f3f3;
+    font-size: 16px;
+    padding: 10px 15px 10px 35px;
+}
+input.add-big, a.add-big {
+    background: url(/img/sprite.png)  15px -23px no-repeat #f3f3f3;
+    font-size: 16px;
+    padding: 10px 15px 10px 35px;
+}
+input.delete-big, a.delete-big {
+    background: url(/img/sprite.png)  15px -57px no-repeat #f3f3f3;
+    font-size: 16px;
+    padding: 10px 15px 10px 35px;
+}
+input.flag-big, a.flag-big {
+    background: url(/img/sprite.png)  15px -92px no-repeat #f3f3f3;
+    font-size: 16px;
+    padding: 10px 15px 10px 35px;
+}
+input.up-big, a.up-big {
+    background: url(/img/sprite.png)  15px -128px no-repeat #f3f3f3;
+    width: 18px;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+input.down-big, a.down-big {
+    background: url(/img/sprite.png)  15px -163px no-repeat #f3f3f3;
+    width: 18px;
+    font-size: 16px;
+    padding: 10px 15px;
+}

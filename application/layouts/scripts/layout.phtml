@@ -1,0 +1,31 @@
+<?php echo $this->doctype(); ?>
+<head>
+<title>Landlord Accounting</title>
+
+<?php $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8'); ?>
+<?php $session = Zend_Registry::get('session'); $this->headMeta()->appendName('language', $session->language); ?>
+<?php echo $this->headMeta(); ?>
+
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/reset.css')); ?>
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/styles.css')); ?>
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/header.css')); ?>
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/buttons.css')); ?>
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/jquery.ui.all.css')); ?>
+<?php echo $this->headLink(); ?>
+
+<?php $this->headScript()->appendFile('/js/jquery-1.6.2.min.js', 'text/javascript'); ?>
+<?php $this->headScript()->appendFile('/js/ui/jquery.ui.core.js', 'text/javascript'); ?>
+<?php $this->headScript()->appendFile('/js/ui/jquery.ui.widget.js', 'text/javascript'); ?>
+<?php $this->headScript()->appendFile('/js/ui/jquery.ui.datepicker.js', 'text/javascript'); ?>
+<?php echo $this->headScript(); ?>
+</head>
+
+<body>
+<div class="header">
+<?php echo $this->loggedInAs() ?>
+<?php echo $this->menuBar() ?>
+<?php echo $this->language(); ?>
+</div>
+<?php echo $this->layout()->content ?>
+<div class="footer"></div>
+</body>

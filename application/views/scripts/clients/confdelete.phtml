@@ -1,0 +1,4 @@
+<h1>Confirmation de l'effacement de la réservation :</h1>
+<?php echo $this->showResa($this->ClientId); ?>
+<a class="button save" href="<?php echo $this->url(array('controller'=>'clients', 'action'=>'delete', 'id' => $this->ClientId)); ?>">Effacer</a>
+<a class="button delete" href="<?php echo $this->url(array('controller'=>'clients', 'action'=>'liste', 'id' => NULL)); ?>">Conserver</a>

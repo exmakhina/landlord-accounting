@@ -1,0 +1,53 @@
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+	google.load('visualization', '1', {'packages': ['geochart']});
+	google.setOnLoadCallback(drawRegionsMap);
+	
+	function drawRegionsMap() {
+		// Create our data table.
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableGeo; ?>);
+		
+		var options = {	width:834, 
+								height:520};
+		
+		var container = document.getElementById('map_canvas');
+		var geochart = new google.visualization.GeoChart(container);
+		geochart.draw(data, options);
+	};
+</script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc; ?>);
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+		var options = {	width: 1100, 
+								height: 300, 
+								title: 'Taux d\'occupation (%)',
+						  		hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: 'black'}}
+						 	};
+		chart.draw(data, options);
+	}
+</script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableRef; ?>);
+		var chart = new google.visualization.PieChart(document.getElementById('chart_pie'));
+		var options = {	width: 450, 
+								height: 300, 
+								title: 'Sites référents'};
+		
+		chart.draw(data, options);
+	}
+</script>
+  
+<h1>Provenance des clients</h1>
+<div id='map_canvas'></div>
+<h1>Taux d'occupation</h1>
+<div id="chart_div"></div>
+<h1>Sites référents</h1>
+<div id="chart_pie"></div>
+  
