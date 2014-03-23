@@ -1,0 +1,19 @@
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc; ?>);
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+		var options = {	width: 1100, 
+								height: 300, 
+								title: 'Taux d\'occupation (%)',
+						  		hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: 'black'}}
+						 	};
+		chart.draw(data, options);
+	}
+</script>
+
+<h1>Taux d'occupation</h1>
+<div id="chart_div"></div>

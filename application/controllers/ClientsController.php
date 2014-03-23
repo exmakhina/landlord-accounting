@@ -192,16 +192,6 @@ class ClientsController extends Zend_Controller_Action
 		else
 			$this->view->order = 'nom ASC'; 
     }
-
-    public function statsAction()
-    {
-        $this->checkIdentity();
-		
-		// action body
-		$this->view->datatableGeo = $this->getCustOrgStat();
-		$this->view->datatableOcc = $this->getOccupationStat();
-		$this->view->datatableRef = $this->getWebStat();
-    }
 	
 	public function newresaAction()
 	{
@@ -413,6 +403,40 @@ class ClientsController extends Zend_Controller_Action
 		// retour a la liste des reservations :
 		$this->_helper->redirector('liste');
     }
+	
+	public function frommapAction()
+	{
+		$this->checkIdentity();
+		// Compile the client origin for the google map applet
+		$this->view->datatableGeo = $this->getCustOrgStat();
+	}
+	
+	public function tauxoccupAction()
+	{
+		$this->checkIdentity();
+		// TODO: replace static display by a fully customizable stuff
+		$this->view->datatableOcc = $this->getOccupationStat();
+	}
+	
+	public function fromsitesAction()
+	{
+		$this->checkIdentity();
+		// compile the reservation web sites stats for the google charts
+		$this->view->datatableRef = $this->getWebStat();
+	}
+	
+	public function advancedstatsAction()
+	{
+		$this->checkIdentity();
+		// TODO: Resercation dates, yera by year stats, by contry, by appt, etc...
+	}
+	
+	public function statsmenuAction()
+	{
+		$this->checkIdentity();
+		
+		// nothing to do here... just display a menu
+	}
 }
 
 

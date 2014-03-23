@@ -1,0 +1,17 @@
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableRef; ?>);
+		var chart = new google.visualization.PieChart(document.getElementById('chart_pie'));
+		var options = {	width: 450, 
+								height: 300, 
+								title: 'Sites référents'};
+		
+		chart.draw(data, options);
+	}
+</script>
+
+<h1>Sites référents</h1>
+<div id="chart_pie"></div>
