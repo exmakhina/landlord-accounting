@@ -154,6 +154,22 @@ class Application_Model_ClientsMapper
         return $resultSet;		
 	}
 	
+	public function getBookingsFromTo($appt, $from, $to) 	// must be in 'Y-m' format
+	{
+		$select = $this->getDbTable()	->select()
+										->from('clients', array('checkin', 'checkout', 'nb_nuits'))
+										->order('checkin ASC')
+										->where('checkin >= ?', $from.'-01')
+										->where('checkin <= ?', $to.'-31')
+										->where('appt = ?', $appt)
+										->where('user = ?', $this->_userID);
+		//print $select->__toString();
+		$stmt = $select->query();
+		$resultSet = $stmt->fetchAll();
+	
+        return $resultSet;	
+	}
+	
 	public function getMonthlyRevenue($month)		// must be in 'Y-m' format
 	{
 		// get the revenue from rents

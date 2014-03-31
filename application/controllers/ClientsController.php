@@ -46,12 +46,9 @@ class ClientsController extends Zend_Controller_Action
 		}
 	}
 	
-	private function getOccupationStat()
-	{
-		// -----------------------------------
-		// Taux d'occupation
-		// -----------------------------------
-		$clientMapper = new Application_Model_ClientsMapper();
+	public function getOccupationStats()
+    {
+        // action body
 		$liste_mois = array('01' =>	'Janvier',
 							'02' =>	'Fevrier',
 							'03' =>	'Mars',
@@ -64,61 +61,101 @@ class ClientsController extends Zend_Controller_Action
 							'10' =>	'Octobre',
 							'11' =>	'Novembre',
 							'12' =>	'Decembre');
-		$bookings = $clientMapper->getBookings();
+		
+		$clientMapper = new Application_Model_ClientsMapper();
 		$apptsMapper = new Application_Model_ApptsMapper();
 		$appts = $apptsMapper->fetchAll();
+		$today = new DateTime('now');
+		$years = array(	'last_year' => ($today->format('Y')-1),
+						'this_year' => $today->format('Y'),
+						'next_year' => ($today->format('Y')+1));
 		
-		// first line
-		$result = '[[\'Mois\'';
-		foreach($appts as $appt) {
-			$result .= ', \'Appt #'.$appt->getId().' - '.$appt->getAdresse().'\'';
-		}
-		$result .= ']';
-		
-		// browse every past and upcoming resarvations 
+		// initialize global arrays
 		$graphData = array();
-		foreach($bookings as $book) {
-			$checkin = new DateTime($book['checkin']);
-			$checkout = new DateTime($book['checkout']);
-			
-			$occupation = array();
-			$this->updateOccupationStat($checkin, $book['nb_nuits'], $occupation);
-			
-			foreach ($occupation as $mois=>$nbJoursParMois) {
-				if (!in_array($mois, $graphData)) {
-					if (isset($graphData[$mois][$book['appt']])) 
-						$graphData[$mois][$book['appt']] += $nbJoursParMois;
-					else
-						$graphData[$mois][$book['appt']] = $nbJoursParMois;	
-				} else {
-					$data = array();		// resets de data table
-					$data[$book['appt']] = $nbJoursParMois;
-					$graphData[$mois] = $data;	
-				}	
+		$result = array();
+		
+		// One graph per appartment
+		foreach($appts as $appt) {
+			// Fetch occupancy stats for each year and create a
+			// per month occupancy statistics structure ($graphData[$appt][$year][$mois] = % occ)
+			$apptId = $appt->getId();
+			$graphData[$apptId] = array();
+			foreach($years as $key=>$year) {
+				$from = $year.'-01';	// January
+				$to = $year.'-12';		// December
+				$bookings = $clientMapper->getBookingsFromTo($apptId, $from, $to);
+				
+				// browse every past and upcoming resarvations 
+				$graphData[$apptId][$year] = array();
+				foreach($bookings as $book) {
+					$checkin = new DateTime($book['checkin']);
+					
+					$occupation = array();
+					$this->updateOccupationStat($checkin, $book['nb_nuits'], $occupation);
+					
+					foreach ($occupation as $mois=>$nbJoursParMois) {
+						$this_month = new DateTime($mois.'-01');	//$mois is formatted as 'Y-m'
+						$month = $this_month->format('m');		// extract the 'm' from a 'Y-m-d' format
+						
+						if (!in_array($month, $graphData[$apptId])) {
+							if (isset($graphData[$apptId][$year][$month])) 
+								$graphData[$apptId][$year][$month] += $nbJoursParMois;
+							else
+								$graphData[$apptId][$year][$month] = $nbJoursParMois;	
+						} else {
+							$graphData[$apptId][$year][$month] = $nbJoursParMois;
+						}
+						
+						unset($this_month);	
+					}
+					
+					unset($occupation);
+					unset($checkin);
+				}
+				
+				unset($bookings);
 			}
+			
+			// Create the resuslt string for one appartment:
+			// [[Mois, last_year, this_year, next_year]
+			// ,[Janvier, x%, y%, z%]
+			// ,[Fevrier, ..........]
+			// .....
+			// ,[Decembre], ........]]
+			$result[$apptId] = '[[\'Mois\'';
+			$result[$apptId] .= ', \''.$years['last_year'].'\'';
+			$result[$apptId] .= ', \''.$years['this_year'].'\'';
+			$result[$apptId] .= ', \''.$years['next_year'].'\'';
+			$result[$apptId] .= ']';	
+			
+			foreach($liste_mois as $numMois=>$mois) {
+				$result[$apptId] .= ', [\''.$mois.'\'';
+				foreach($years as $key=>$year) {
+					$this_month_date = new DateTime($year.'-'.$numMois.'-01');
+					$nbjours = $this->getNbDayInMonth($this_month_date);
+					if (isset($graphData[$apptId][$year][$numMois])) {
+						$result[$apptId] .= ', '.round(100 * $graphData[$apptId][$year][$numMois] / $nbjours);		// affichage %
+					} else {
+						$result[$apptId] .= ', 0';
+					}
+					unset($this_month_date);
+				}
+				$result[$apptId] .= ']';
+			}
+			
+			$result[$apptId] .= ']';
 		}
 		
-		// populate the graph datas
-		foreach($graphData as $date=>$stat) {
-			$dummyDate = new DateTime($date.'-01');
-			$nbjours = $this->getNbDayInMonth($dummyDate);
-			$dateLetters = $liste_mois[$dummyDate->format('m')].' '.$dummyDate->format('Y');
+		unset($graphData);
+		unset($years);
+		unset($today);
+		unset($clientMapper);
+		unset($apptsMapper);
+		unset($appts);
 		
-			$result .= ', [\''.$dateLetters.'\'';
-			foreach($appts as $appt) {
-				if (isset($stat[$appt->getId()]))
-					$result .= ', '.round(100 * $stat[$appt->getId()] / $nbjours);		// affichage %
-					//$result .= ', '.$stat[$appt->getId()];						// affichage brut
-				else
-					$result .= ', 0';
-			}
-			$result .= ']';
-		}
-		$result .= ']';
-		//print_r($result);
-		
+		// print_r($result);
 		return $result;
-	}
+    }
 	
 	private function getWebStat()
 	{
@@ -415,7 +452,7 @@ class ClientsController extends Zend_Controller_Action
 	{
 		$this->checkIdentity();
 		// TODO: replace static display by a fully customizable stuff
-		$this->view->datatableOcc = $this->getOccupationStat();
+		$this->view->datatableOcc = $this->getOccupationStats();
 	}
 	
 	public function fromsitesAction()

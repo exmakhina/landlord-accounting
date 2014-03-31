@@ -1,19 +1,62 @@
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 <script type="text/javascript">
 	google.load("visualization", "1", {packages:["corechart"]});
-	google.setOnLoadCallback(drawChart);
+	
 	function drawChart() {
-		var data = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc; ?>);
-		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-		var options = {	width: 1100, 
-								height: 300, 
-								title: 'Taux d\'occupation (%)',
-						  		hAxis: {	title: 'Mois', 
-											titleTextStyle: {color: 'black'}}
-						 	};
-		chart.draw(data, options);
+		var options1 = {	width: 1100,
+								height: 500, 
+								title: 'Taux d\'occupation, 2eme Etage, Années N-1, N et N+1',
+				  				hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: '#FF0000'}}
+				 			};
+							
+		var data_appt1 = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc['1']; ?>);
+	
+		var options2 = {	width: 1100,
+								height: 500, 
+								title: 'Taux d\'occupation, 1er Etage, N et N+1',
+				  				hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: '#FF0000'}}
+				 			};
+							
+		var data_appt2 = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc['2']; ?>);
+	
+		var options3 = {	width: 1100,
+								height: 500, 
+								title: 'Taux d\'occupation, Rez-de-chaussee, Années N-1, N et N+1',
+				  				hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: '#FF0000'}}
+				 			};
+							
+		var data_appt3 = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc['3']; ?>);
+	
+		var options4 = {	width: 1100,
+								height: 500, 
+								title: 'Taux d\'occupation, Cave, Années N-1, N et N+1',
+				  				hAxis: {	title: 'Mois', 
+											titleTextStyle: {color: '#FF0000'}}
+				 			};
+							
+		var data_appt4 = google.visualization.arrayToDataTable(<?php echo $this->datatableOcc['4']; ?>);
+		
+		var chart_appt1 = new google.visualization.AreaChart(document.getElementById('chart1_div'));
+		chart_appt1.draw(data_appt1, options1);	
+	
+		var chart_appt2 = new google.visualization.AreaChart(document.getElementById('chart2_div'));
+		chart_appt2.draw(data_appt2, options2);
+	
+		var chart_appt3 = new google.visualization.AreaChart(document.getElementById('chart3_div'));
+		chart_appt3.draw(data_appt3, options3);
+	
+		var chart_appt4 = new google.visualization.AreaChart(document.getElementById('chart4_div'));
+		chart_appt4.draw(data_appt4, options4);
 	}
+	
+	google.setOnLoadCallback(drawChart);
 </script>
 
 <h1>Taux d'occupation</h1>
-<div id="chart_div"></div>
+<div id="chart1_div"></div>
+<div id="chart2_div"></div>
+<div id="chart3_div"></div>
+<div id="chart4_div"></div>
