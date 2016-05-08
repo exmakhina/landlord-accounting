@@ -26,7 +26,7 @@ class Zend_View_Helper_ListeAppts extends Zend_View_Helper_Abstract
 			}
 			$pair = !$pair;
 			
-			$rapport .= '<td>'.$appt->getNumero().'</td>';	
+			$rapport .= '<td>'.$appt->getId().'</td>';	
 			$rapport .= '<td>'.$appt->getAdresse().'</td>';
 			
 			$rapport .= '<td><div class = "edit"><a href="'.$actionmodify.'"><img src="/img/button_edit_grey.gif" /></a></div></td>';

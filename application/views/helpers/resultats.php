@@ -4,7 +4,12 @@ class Zend_View_Helper_Resultats extends Zend_View_Helper_Abstract
 {
     public function resultats($annee)
     {
-		$posteMapper = new Application_Model_PosteMapper();
+		$session = Zend_Registry::get('session');
+		$language = $session->language;
+		$translationsMapper = new Application_Model_TranslationsMapper();
+		$txt = $translationsMapper->getLanguage($language);
+		
+		$posteMapper = new Application_Model_PostesMapper();
 		$opMapper = new Application_Model_OperationMapper();
 		$mvMapper = new Application_Model_MouvementMapper();
 		
@@ -27,7 +32,7 @@ class Zend_View_Helper_Resultats extends Zend_View_Helper_Abstract
 			}
 			$pair = !$pair;
 	
-			$rapport .= '<td class = "poste">'.$row->getNom().'</td><td class = "montant">';	
+			$rapport .= '<td class = "poste">'.$txt[$row->getNom()].'</td><td class = "montant">';	
 			foreach ($operations as $operation) {
 				$moves = $mvMapper->fetchOp($operation->getId());
 				foreach ($moves as $move) {
@@ -64,7 +69,7 @@ class Zend_View_Helper_Resultats extends Zend_View_Helper_Abstract
 			}
 			$pair = !$pair;
 			
-			$rapport .= '<td class = "poste">'.$row->getNom().'</td><td class = "montant">';	
+			$rapport .= '<td class = "poste">'.$txt[$row->getNom()].'</td><td class = "montant">';	
 			foreach ($operations as $operation) {
 				$moves = $mvMapper->fetchOp($operation->getId());
 				foreach ($moves as $move) {

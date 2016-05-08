@@ -4,7 +4,12 @@ class Zend_View_Helper_showOp extends Zend_View_Helper_Abstract
 {
 	public function showOp($id)
     {
-		$posteMapper = new Application_Model_PosteMapper();
+		$session = Zend_Registry::get('session');
+		$language = $session->language;
+		$translationsMapper = new Application_Model_TranslationsMapper();
+		$txt = $translationsMapper->getLanguage($language);
+		
+		$posteMapper = new Application_Model_PostesMapper();
 		$postes = $posteMapper->fetchAll();
 		
 		$opMapper = new Application_Model_OperationMapper();
@@ -18,7 +23,7 @@ class Zend_View_Helper_showOp extends Zend_View_Helper_Abstract
 		$rapport .= '<th class = "poste"><div class = "cell_ldc_l">Description</div></th>';
 		$rapport .= '<th class = "poste"><div class = "cell_ldc_s">Reference</div></th>';
 		foreach ($postes as $row) {
-			$rapport .= '<th class = "poste"><div class = "cell_ldc_s">'.$row->getNom().'</div></th>';	
+			$rapport .= '<th class = "poste"><div class = "cell_ldc_s">'.$txt[$row->getNom()].'</div></th>';	
 		}
 		$rapport .= '<tr class = "pair">';
 	
