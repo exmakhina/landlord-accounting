@@ -17,6 +17,7 @@ class RapportController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
 		$this->view->courant = 'rapport';
+		date_default_timezone_set('Europe/Lisbon');
     }
 
     public function indexAction()
