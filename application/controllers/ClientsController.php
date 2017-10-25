@@ -197,6 +197,7 @@ class ClientsController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
 		$this->view->courant = 'clients';
+		date_default_timezone_set('Europe/Lisbon');
     }
 
     public function indexAction()
